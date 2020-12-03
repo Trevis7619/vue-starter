@@ -85,7 +85,7 @@
 
                 axios({
                     method: 'post',
-                    url: 'http://127.0.0.1:4455/sub',
+                    url: 'sub',
                     data: {
                         "category":this.form.category,
                         "review":this.form.review
