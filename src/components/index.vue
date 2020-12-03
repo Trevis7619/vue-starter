@@ -83,7 +83,6 @@
                 }
 
 
-                this.status = true;
                 axios({
                     method: 'post',
                     url: 'http://127.0.0.1:4455/sub',
@@ -92,7 +91,14 @@
                         "review":this.form.review
                     }
                 }).then(res => {
-                    this.form.rating =res.data;
+                    console.log("r")
+                    let result = res.data
+                    if(result.msg==="error"){
+                        this.$message(result.tips);
+                    }else{
+                        this.status = true;
+                        this.form.rating =result.data;
+                    }
                 })
 
             },
